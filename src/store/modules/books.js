@@ -17,7 +17,7 @@ const actions = {
         commit('fillBooks', res.data.rows)
       })
       .catch(err => {
-        alert('Error consultando')
+        alert('Error consultando', err)
       })
   },
   getFullBooks: async function ({ commit }) {
@@ -26,7 +26,7 @@ const actions = {
         commit('fillFullBooks', res.data.rows)
       })
       .catch(err => {
-        alert('Error consultando')
+        alert('Error consultando', err)
       })
   },
   reserveBook: async function ({ commit }, payload) {
@@ -36,8 +36,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Inicie sesión para continuar')
+        alert('Inicie sesión para continuar', err)
       })
   },
   getReservedBooks: async function ({ commit }) {
@@ -46,8 +45,7 @@ const actions = {
         commit('fillReservedBooks', res.data.rows)
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   },
   returnBook: async function ({ commit }, payload) {
@@ -57,8 +55,7 @@ const actions = {
         this.dispatch('getReservedBooks')
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   },
   addBook: async function ({ commit }, payload) {
@@ -68,8 +65,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   },
   editBook: async function ({ commit }, payload) {
@@ -79,8 +75,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   },
   deleteBook: async function ({ commit }, payload) {
@@ -90,8 +85,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        alert('Error consultando API')
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   }
 }

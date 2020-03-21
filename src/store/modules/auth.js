@@ -20,7 +20,7 @@ const actions = {
         commit('authSuccess', res)
       })
       .catch(err => {
-        alert('Datos inválidos. Ingreso Fallido')
+        alert('Datos inválidos. Ingreso Fallido', err)
       })
   },
 
@@ -34,7 +34,7 @@ const actions = {
         alert('Usuario registrado con éxito')
       })
       .catch(err => {
-        alert('Datos inválidos')
+        alert('Datos inválidos', err)
       })
   }
 }
