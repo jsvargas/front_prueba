@@ -13,7 +13,7 @@ const actions = {
         commit('fillUsers', res.data.rows)
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
       })
   },
   deleteUser: async function ({ commit }, payload) {
@@ -22,7 +22,7 @@ const actions = {
         this.dispatch('getUsers')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   },
@@ -32,7 +32,7 @@ const actions = {
         alert('Usuario Actualizado')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   }

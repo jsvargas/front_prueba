@@ -21,7 +21,6 @@ const actions = {
       })
       .catch(err => {
         alert('Datos inválidos. Ingreso Fallido')
-        console.log(err)
       })
   },
 
@@ -36,7 +35,6 @@ const actions = {
       })
       .catch(err => {
         alert('Datos inválidos')
-        console.log(err)
       })
   }
 }

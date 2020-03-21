@@ -39,7 +39,6 @@ export default {
   name: 'Header',
   methods: {
     logout () {
-      console.log('logout')
       this.$store.dispatch('logout').then(() => {
         const newRoutePath = '/'
         if (this.$route.path !== newRoutePath) {

@@ -17,7 +17,7 @@ const actions = {
         commit('fillBooks', res.data.rows)
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando')
       })
   },
   getFullBooks: async function ({ commit }) {
@@ -26,7 +26,7 @@ const actions = {
         commit('fillFullBooks', res.data.rows)
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando')
       })
   },
   reserveBook: async function ({ commit }, payload) {
@@ -36,7 +36,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Inicie sesión para continuar')
       })
   },
@@ -46,7 +46,7 @@ const actions = {
         commit('fillReservedBooks', res.data.rows)
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   },
@@ -57,7 +57,7 @@ const actions = {
         this.dispatch('getReservedBooks')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   },
@@ -68,7 +68,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   },
@@ -79,7 +79,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   },
@@ -90,7 +90,7 @@ const actions = {
         this.dispatch('getBooks')
       })
       .catch(err => {
-        console.log(err)
+        alert('Error consultando API')
         alert('Datos inválidos')
       })
   }

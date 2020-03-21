@@ -10,7 +10,6 @@ import store from '../store'
 Vue.use(VueRouter)
 
 const normalAuthenticated = (to, from, next) => {
-  console.log('normalAuthenticated')
   if (store.getters.isAuthenticated) {
     next()
     return
@@ -19,7 +18,6 @@ const normalAuthenticated = (to, from, next) => {
 }
 
 const adminAuthenticated = (to, from, next) => {
-  console.log('adminAuthenticated')
   if (store.getters.isAuthenticated) {
     if (store.getters.typeAuthenticated === 1) {
       next()
@@ -32,7 +30,6 @@ const adminAuthenticated = (to, from, next) => {
 }
 
 const ifNotAuthenticated = (to, from, next) => {
-  console.log('notAuthenticated')
   if (!store.getters.isAuthenticated) {
     next()
     return
