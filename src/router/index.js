@@ -1,8 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import AdminUsers from '../views/AdminUsers.vue'
+import Account from '../views/Account.vue'
+import AdminBooks from '../views/AdminBooks.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
+
+const normalAuthenticated = (to, from, next) => {
+  console.log('normalAuthenticated')
+  if (store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/login')
+}
+
+const adminAuthenticated = (to, from, next) => {
+  console.log('adminAuthenticated')
+  if (store.getters.isAuthenticated) {
+    if (store.getters.typeAuthenticated === 1) {
+      next()
+      return
+    }
+    next('/account')
+    return
+  }
+  next('/login')
+}
+
+const ifNotAuthenticated = (to, from, next) => {
+  console.log('notAuthenticated')
+  if (!store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/adminUsers')
+}
 
 const routes = [
   {
@@ -11,12 +47,28 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    beforeEnter: ifNotAuthenticated
+  },
+  {
+    path: '/adminUsers',
+    name: 'AdminUsers',
+    component: AdminUsers,
+    beforeEnter: adminAuthenticated
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+    beforeEnter: normalAuthenticated
+  },
+  {
+    path: '/adminBooks',
+    name: 'AdminBooks',
+    component: AdminBooks,
+    beforeEnter: adminAuthenticated
   }
 ]
 

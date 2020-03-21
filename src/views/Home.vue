@@ -1,18 +1,28 @@
 <template>
+<div>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="card-columns">
+      <Book v-for="(book, index) in books" :key="index" :title="book.title" :author="book.author" :description="book.description" :id="book.id" :datereserved="book.datereserved" :urlimage="book.urlimage"></Book>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Book from '@/components/Book.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
+  created () {
+    this.$store.dispatch('getBooks')
+  },
+  computed: mapState({
+    books: state => state.books.books
+  }),
   components: {
-    HelloWorld
+    Book
   }
 }
 </script>
