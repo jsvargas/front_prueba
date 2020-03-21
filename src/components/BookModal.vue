@@ -15,19 +15,24 @@
                   <form>
                     <div class="form-group">
                       <label for="formControlInput1">Título *</label>
-                      <input type="text" class="form-control" id="titleBook" placeholder="Título" v-model="title">
+                      <input type="text" class="form-control" id="titleBook" placeholder="Título" v-model="title"  maxlength="100">
                     </div>
                     <div class="form-group">
                       <label for="formControlInput1">Autor *</label>
-                      <input type="text" class="form-control" id="authorBook" placeholder="Autor" v-model="author">
+                      <input type="text" class="form-control" id="authorBook" placeholder="Autor" v-model="author"  maxlength="100">
                     </div>
                     <div class="form-group">
                       <label for="formControlInput3">Descripción *</label>
-                      <textarea class="form-control" id="descriptionBook" rows="3" placeholder="Descripción" v-model="description"></textarea>
+                      <textarea class="form-control" id="descriptionBook" rows="3" placeholder="Descripción" v-model="description"  maxlength="2000"></textarea>
                     </div>
-                    <div class="form-group">
-                      <label for="formControlInput1">URL Imagen</label>
-                      <input type="text" class="form-control" id="urlImageBook" placeholder="http://example.com/image.png" v-model="urlimage">
+                    <div class="form-row">
+                      <div class="form-group col-md-8">
+                        <label for="formControlInput1">URL Imagen</label>
+                        <input type="text" class="form-control" id="urlImageBook" placeholder="http://example.com/image.png"  maxlength="200" v-model="urlimage">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <img v-if="urlimage" class="card-img-top" :src="urlimage" alt="Preview">
+                      </div>
                     </div>
                   </form>
                 </div>

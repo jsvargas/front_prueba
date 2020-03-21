@@ -6,17 +6,14 @@
         <h2>{{loginForm?'Ingreso':'Registro'}}</h2>
         <!-- Login Form -->
         <form>
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Username" v-model="credentials.username">
-          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="credentials.password">
-          <input type="password" id="password2" class="" name="login" placeholder="Confirmar Password" v-model="passwordConfirm" v-if="!loginForm">
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Username" v-model="credentials.username"  maxlength="20">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="credentials.password"  maxlength="20">
+          <input type="password" id="password2" class="" name="login" placeholder="Confirmar Password" v-model="passwordConfirm" v-if="!loginForm"  maxlength="20">
           <input type="button" @click="clickButton" class="fadeIn fourth" :value="loginForm?'Ingresar':'Registrarse'">
         </form>
-
-        <!-- Remind Passowrd -->
         <div id="formFooter">
           {{loginForm?'No tienes cuenta?':'Tienes cuenta?'}} <a class="underlineHover" @click="changeLoginForm">{{loginForm?'Regístrate':'Inicia Sesión'}}</a>
         </div>
-
       </div>
     </div>
   </div>
